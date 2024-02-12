@@ -29,7 +29,7 @@ If a site has specific options e.g. password complexity these can also be set.
 
 ## Requirements
 
-goss >= 0.4.0
+goss >= 0.4.4
 root privileges
 
 ## Usage
