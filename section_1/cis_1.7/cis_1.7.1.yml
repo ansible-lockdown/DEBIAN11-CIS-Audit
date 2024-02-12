@@ -1,0 +1,28 @@
+{{ if .Vars.debian11cis_level_1 }}
+  {{ if .Vars.debian11cis_rule_1_7_1 }}
+file:
+  motd_nodynamic:
+    title: 1.7.1 | Ensure message of the day is configured properly
+    path: /etc/pam.d/sshd
+    exists: true
+    contents:
+    - '/^# session\s+optional\s+ pam_motd.so motd=/run/motd.dynamic/'
+    - '!/^[^#].*motd=/run/motd.dynamic/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.7.1
+      CISv8: NA
+      CISv8_IG1: NA
+      CISv8_IG2: NA
+      CISv8_IG3: NA
+      Mitre_Techniques:
+      - T1082
+      - T1082.000
+      - T1592
+      - T1592.004
+      Mitre_Tactics: TA0007
+      Mitre_Mitigations: NA
+  {{ end }}
+{{ end }}

@@ -1,0 +1,62 @@
+{{ if not .Vars.debian11cis_rsyncd_server }}
+  {{ if .Vars.debian11cis_level_1 }}
+    {{ if .Vars.debian11cis_rule_2_2_16 }}
+      {{ if eq .Vars.debian11cis_rsync_server "remove" }}
+package:
+  rsync:
+    title: 2.2.16 | Ensure rsync service is not installed | removed
+    installed: false
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 2.2.16
+      CISv8:
+      - 4.8
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1203
+      - T1203.000
+      - T1210
+      - T1210.000
+      - T1543
+      - T1543.002
+      - T1570
+      - T1570.000
+      Mitre_Tactics: TA0008
+      Mitre_Mitigations: M1042
+      {{ end }}
+      {{ if eq .Vars.debian11cis_rsync_server "mask" }}
+file:
+  rsync_masked:
+    title: 2.2.16 | Ensure rsync service is not installed | service masked
+    path: /etc/systemd/system/rsync.service
+    filetype: symlink
+    linked-to: /dev/null
+    exists: true
+    meta:
+      meta:
+      server: 1
+      workstation: 1
+      CIS_ID: 2.2.16
+      CISv8:
+      - 4.8
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      Mitre_Techniques:
+      - T1203
+      - T1203.000
+      - T1210
+      - T1210.000
+      - T1543
+      - T1543.002
+      - T1570
+      - T1570.000
+      Mitre_Tactics: TA0008
+      Mitre_Mitigations: M1042
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
