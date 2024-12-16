@@ -1,43 +1,27 @@
-{{ if .Vars.debian11cis_level_1 }}
-  {{ if .Vars.debian11cis_rule_5_1_1 }}
-package:
-  cron:
-    title: 5.1.1 | Ensure cron daemon is enabled and running | pkg
-    installed: true
+---
+
+{{ if .Vars.deb11cis_level_1 }}
+  {{ if .Vars.deb11cis_rule_5_1_1 }}
+file:
+  sshd_config_perms:
+    title: 5.1.1 | Ensure permissions on /etc/ssh/sshd_config are configured
+    path: /etc/ssh/sshd_config
+    exists: true
+    mode: "0600"
+    owner: root
+    group: root
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 5.1.1
-      CISv8: NA
-      CISv8_IG1: NA
-      CISv8_IG2: NA
-      CISv8_IG3: NA
-      Mitre_Techniques:
-      - T1562
-      - T1562.001
-      Mitre_Tactics:
-      - TA0005
-      Mitre_Mitigations: M1018
-service:
-  cron:
-    title: 5.1.1 | Ensure cron daemon is enabled and running | service
-    running: true
-    enabled: true
-    meta:
-      server: 1
-      workstation: 1
-      CIS_ID:
-      - 5.1.1
-      CISv8: NA
-      CISv8_IG1: NA
-      CISv8_IG2: NA
-      CISv8_IG3: NA
-      Mitre_Techniques:
-      - T1562
-      - T1562.001
-      Mitre_Tactics:
-      - TA0005
-      Mitre_Mitigations: M1018
+      CISv8:
+      - 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - AC-3
+      - MP-2
   {{ end }}
 {{ end }}

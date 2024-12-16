@@ -1,63 +1,17 @@
-{{ if .Vars.debian11cis_level_1 }}
-  {{ if .Vars.debian11cis_rule_3_2_1 }}
-kernel-param:
-  net.ipv4.conf.all.send_redirects:
-    title: 3.2.1 | Ensure packet redirect sending is disabled | all send_redirect
-    value: '0'
-    meta:
-      server: 1
-      workstation: 1
-      CIS_ID:
-      - 3.2.1
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
-      Mitre_Techniques:
-      - T1557
-      - T1557.000
-      Mitre_Tactics:
-      - TA0006
-      - TA0009
-      Mitre_Mitigations:
-      - M1030
-      - M1042
-  net.ipv4.conf.default.send_redirects:
-    title: 3.2.1 | Ensure packet redirect sending is disabled | default send_redirects
-    value: '0'
-    meta:
-      server: 1
-      workstation: 1
-      CIS_ID:
-      - 3.2.1
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
-      Mitre_Techniques:
-      - T1557
-      - T1557.000
-      Mitre_Tactics:
-      - TA0006
-      - TA0009
-      Mitre_Mitigations:
-      - M1030
-      - M1042
+---
+
+{{ if .Vars.deb11cis_level_2 }}
+  {{ if .Vars.deb11cis_rule_3_2_1 }}
 command:
-  ipv4_disable_all_redirect:
-    title: 3.2.1 | Ensure packet redirect sending is disabled | all send_redirect config
-    exec: grep -E "^\s*net\.ipv4\.conf\.all\.send_redirects" /etc/sysctl.conf /etc/sysctl.d/*
-    exit-status:
-      or:
-      - 0
-      - 1
+  modprobe_dccp:
+    title: 3.2.1 | Ensure dccp kernel module is not available | DCCP config
+    exit-status: 0
+    exec: 'modprobe -n -v dccp'
     stdout:
-    - '/.*:net.ipv4.conf.all.send_redirects=0/'
+      - '/install /bin/(true|false)/'
     meta:
-      server: 1
-      workstation: 1
+      server: 2
+      workstation: 2
       CIS_ID:
       - 3.2.1
       CISv8:
@@ -65,27 +19,18 @@ command:
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1557
-      - T1557.000
-      Mitre_Tactics:
-      - TA0006
-      - TA0009
-      Mitre_Mitigations:
-      - M1030
-      - M1042
-  ipv4_disable_def_redirect:
-    title: 3.2.1 | Ensure packet redirect sending is disabled | default send_redirect config
-    exec: grep -E "^\s*net\.ipv4\.conf\.default\.send_redirects" /etc/sysctl.conf /etc/sysctl.d/*
-    exit-status:
-      or:
-      - 0
-      - 1
+      NIST800-53R5:
+      - CM-7
+      - SI-4
+  lsmod_dccp:
+    title: 3.2.1 | Ensure dccp kernel module is not available | running dccp
+    exit-status: 1
+    exec: lsmod | grep -i dccp
     stdout:
-    - '/.*:net.ipv4.conf.default.send_redirects=0/'
+    - '!/^.*/'
     meta:
-      server: 1
-      workstation: 1
+      server: 2
+      workstation: 2
       CIS_ID:
       - 3.2.1
       CISv8:
@@ -93,14 +38,8 @@ command:
       CISv8_IG1: false
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1557
-      - T1557.000
-      Mitre_Tactics:
-      - TA0006
-      - TA0009
-      Mitre_Mitigations:
-      - M1030
-      - M1042
+      NIST800-53R5:
+      - CM-7
+      - SI-4
   {{ end }}
 {{ end }}

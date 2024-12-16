@@ -1,26 +1,25 @@
-{{ if .Vars.debian11cis_level_1 }}
-  {{ if .Vars.debian11cis_rule_1_7_5 }}
+---
+
+{{ if .Vars.deb11cis_gui }}
+  {{ if .Vars.deb11cis_level_1 }}
+    {{ if .Vars.deb11cis_rule_1_7_5 }}
 file:
-  etc_issue_perms:
-    title: 1.7.5 | Ensure permissions on /etc/issue are configured
+  00-screensaver_lock:
+    title: 1.7.5 | Ensure GDM screen locks cannot be overridden
+    path: /etc/dconf/db/{ .Vars.deb11cis_dconf_db_name }.d/locks/00-screensaver_lock
     exists: true
-    path: /etc/issue
-    owner: root
-    group: root
-    mode: '0644'
+    contents:
+    - '^\/org\/gnome\/desktop\/session\/idle-delay/'
+    - '^/\/org\/gnome\/desktop\/screensaver\/lock-delay/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 1.7.5
-      CISv8: 3.3
+      CISv8: 4.3
       CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1222
-      - T1222.002
-      Mitre_Tactics: TA0005
-      Mitre_Mitigations: M1022
+    {{ end }}
   {{ end }}
 {{ end }}

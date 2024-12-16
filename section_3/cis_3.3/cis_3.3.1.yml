@@ -1,94 +1,99 @@
-{{ if .Vars.debian11cis_level_1 }}
-  {{ if .Vars.debian11cis_rule_3_3_1 }}
+---
+{{ if .Vars.deb11cis_level_1 }}
+  {{ if not .Vars.deb11cis_is_router }}
+    {{ if .Vars.deb11cis_rule_3_3_1 }}
 kernel-param:
-  net.ipv4.conf.all.accept_source_route:
-    title: 3.3.1 | Ensure source routed packets are not accepted | IPv4 all source routed
+  net.ipv4.ip_forward:
+    title: 3.3.1 | Ensure IP forwarding is disabled | ipv4 live
     value: '0'
+    name: net.ipv4.ip_forward
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 3.3.1
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
+      CISv8: 4.1
+      CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1590
-      - T1590.005
-      Mitre_Tactics:
-      - TA0007
-      Mitre_Mitigations: NA
-  net.ipv4.conf.default.accept_source_route:
-    title: 3.3.1 | Ensure source routed packets are not accepted | IPv4 default source routed
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+  {{ if .Vars.deb11cis_ipv6_required }}
+  net.ipv6.conf.all.forwarding:
+    title: 3.3.1 | Ensure IP forwarding is disabled | ipv6 live
     value: '0'
+    name: net.ipv6.conf.all.forwarding
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 3.3.1
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
+      CISv8: 4.1
+      CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1590
-      - T1590.005
-      Mitre_Tactics:
-      - TA0007
-      Mitre_Mitigations: NA
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
 command:
-  ipv4_all_source_route:
-    title: 3.3.1 | Ensure source routed packets are not accepted | IPv4 all source routed conf
-    exec: grep "net\.ipv4\.conf\.all\.accept_source_route" /etc/sysctl.conf /etc/sysctl.d/*
+  ip4_forward_conf:
+    title: 3.3.1 | Ensure IP forwarding is disabled | ipv4 conf
+    exec: grep net.ipv4.ip_forward /etc/sysctl.conf /etc/sysctl.d/*.conf /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf
     exit-status:
       or:
       - 0
-      - 1
+      - 2
     stdout:
-    - '/^\/etc\/sysctl.*:net.ipv4.conf.all.accept_source_route(\s|)=(\s|)0/'
+    - '/.*:net.ipv4.ip_forward( |)=( |)0/'
+    - '!/.*:net.ipv4.ip_forward( |)=( |)1/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 3.3.1
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
+      CISv8: 4.1
+      CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1590
-      - T1590.005
-      Mitre_Tactics:
-      - TA0007
-      Mitre_Mitigations: NA
-  ipv4_def_source_route:
-    title: 3.3.1 | Ensure source routed packets are not accepted | IPv4 default source routed conf
-    exec: grep "net\.ipv4\.conf\.default\.accept_source_route" /etc/sysctl.conf /etc/sysctl.d/*
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+  ip6_forward_conf:
+    title: 3.3.1 | Ensure IP forwarding is disabled | ipv6 conf
+    exec: grep net.ipv6.conf.all.forwarding /etc/sysctl.conf /etc/sysctl.d/*.conf /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf
     exit-status:
       or:
       - 0
-      - 1
+      - 2
     stdout:
-    - '/^\/etc\/sysctl.*:net.ipv4.conf.default.accept_source_route(\s|)=(\s|)0/'
+    - '/.*:net.ipv6.conf.all.forwarding( |)=( |)0/'
+    - '!/.*:net.ipv6.conf.all.forwarding( |)=( |)1/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 3.3.1
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
+      CISv8: 4.1
+      CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1590
-      - T1590.005
-      Mitre_Tactics:
-      - TA0007
-      Mitre_Mitigations: NA
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+     {{ end }}
+    {{ end }}
   {{ end }}
 {{ end }}

@@ -1,106 +1,96 @@
-{{ if .Vars.debian11cis_level_1 }}
-  {{ if .Vars.debian11cis_rule_3_3_7 }}
+---
+
+{{ if .Vars.deb11cis_level_1 }}
+  {{ if .Vars.deb11cis_rule_3_3_7 }}
 kernel-param:
   net.ipv4.conf.all.rp_filter:
-    title: 3.3.7 | Ensure Reverse Path Filtering is enabled | ipv4 all rp_filter
+    title: 3.3.7 | Ensure Reverse Path Filtering is enabled
     value: '1'
+    name: net.ipv4.conf.all.rp_filter
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 3.3.7
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
+      CISv8: 4.1
+      CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1498
-      - T1498.001
-      Mitre_Tactics:
-      - TA0006
-      - TA0040
-      Mitre_Mitigations:
-      - M1030
-      - M1042
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
   net.ipv4.conf.default.rp_filter:
-    title: 3.3.7 | Ensure Reverse Path Filtering is enabled | ipv4 default rp_filter
+    title: 3.3.7 | Ensure Reverse Path Filtering is enabled
     value: '1'
+    name: net.ipv4.conf.default.rp_filter
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 3.3.7
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
+      CISv8: 4.1
+      CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1498
-      - T1498.001
-      Mitre_Tactics:
-      - TA0006
-      - TA0040
-      Mitre_Mitigations:
-      - M1030
-      - M1042
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
 command:
   ipv4_all_rp_filter:
-    title: 3.3.7 | Ensure Reverse Path Filtering is enabled | ipv4 all rp_filter conf
-    exec: grep "net\.ipv4\.conf\.all\.rp_filter" /etc/sysctl.conf /etc/sysctl.d/*
+    title: 3.3.7 | Ensure Reverse Path Filtering is enabled | live ipv4 all
+    exec: grep net.ipv4.conf.all.rp_filter /etc/sysctl.conf /etc/sysctl.d/*.conf /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf
     exit-status:
       or:
       - 0
-      - 1
+      - 2
     stdout:
-    - '/^\/etc\/sysctl.*:net.ipv4.conf.all.rp_filter(\s|)=(\s|)1/'
+    - '/.*:net.ipv4.conf.all.rp_filter( |)=( |)1/'
+    - '!/.*:net.ipv4.conf.all.rp_filter( |)=( |)0/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 3.3.7
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
+      CISv8: 4.1
+      CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1498
-      - T1498.001
-      Mitre_Tactics:
-      - TA0006
-      - TA0040
-      Mitre_Mitigations:
-      - M1030
-      - M1042
-  ipv4_def_rp_filter:
-    title: 3.3.7 | Ensure Reverse Path Filtering is enabled | ipv4 def rp_filter conf
-    exec: grep "net\.ipv4\.conf\.default\.rp_filter" /etc/sysctl.conf /etc/sysctl.d/*
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+  ipv4_default_rp_filter:
+    title: 3.3.7 | Ensure Reverse Path Filtering is enabled | live ipv4 default
+    exec: grep net.ipv4.conf.default.rp_filter /etc/sysctl.conf /etc/sysctl.d/*.conf /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf
     exit-status:
       or:
       - 0
-      - 1
+      - 2
     stdout:
-    - '/^\/etc\/sysctl.*:net.ipv4.conf.default.rp_filter(\s|)=(\s|)/'
+    - '/.*:net.ipv4.conf.default.rp_filter( |)=( |)1/'
+    - '!/.*:net.ipv4.conf.default.rp_filter( |)=( |)0/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 3.3.7
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
+      CISv8: 4.1
+      CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1498
-      - T1498.001
-      Mitre_Tactics:
-      - TA0006
-      - TA0040
-      Mitre_Mitigations:
-      - M1030
-      - M1042
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
   {{ end }}
 {{ end }}

@@ -1,28 +1,61 @@
-{{ if .Vars.debian11cis_level_1 }}
-  {{ if .Vars.debian11cis_rule_5_1_2 }}
-file:
-  crontab_perms:
-    title: 5.1.2 | Ensure permissions on /etc/crontab are configured
-    path: /etc/crontab
-    exists: true
-    owner: root
-    group: root
-    mode: "0600"
+---
+
+{{ if .Vars.deb11cis_level_1 }}
+  {{ if .Vars.deb11cis_rule_5_1_2 }}
+command:
+  /etc/ssh/ssh_host_prv_key_user:
+    title: 5.1.2 | Ensure permissions on SSH private host key files are configured | user
+    exec: "userkeys=$(sudo find /etc/ssh/ -name *_key -type f ! -user root ); echo $userkeys"
+    exit-status: 0
+    stdout: ['!/./']
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 5.1.3
+      CISv8:
+      - 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - AC-3
+      - MP-2
+  /etc/ssh/ssh_host_prv_key_group:
+    title: 5.1.2 | Ensure permissions on SSH private host key files are configured | group
+    exec: "groupkeys=$(sudo find /etc/ssh/ -name *_key -type f ! -group root ); echo $groupkeys"
+    exit-status: 0
+    stdout: ['!/./']
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 5.1.2
-      CISv8: 3.3
+      CISv8:
+      - 3.3
       CISv8_IG1: true
       CISv8_IG2: true
       CISv8_IG3: true
-      Mitre_Techniques:
-      - T1053
-      - T1053.003
-      Mitre_Tactics:
-      - TA0002
-      - TA0007
-      Mitre_Mitigations: M1018
+      NIST800-53R5:
+      - AC-3
+      - MP-2
+  /etc/ssh/ssh_host_prv_key_perms:
+    title: 5.1.2 | Ensure permissions on SSH private host key files are configured | perms
+    exec: "keyperms=$(sudo find /etc/ssh/ -name *_key -type f -perm /137 ); echo $keyperms"
+    exit-status: 0
+    stdout: ['!/./']
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 5.1.2
+      CISv8:
+      - 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - AC-3
+      - MP-2
   {{ end }}
 {{ end }}
