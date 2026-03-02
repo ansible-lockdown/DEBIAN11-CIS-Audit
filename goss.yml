@@ -1,10 +1,12 @@
+---
+
 gossfile:
-# Section 1
+  # Section 1
   {{ if .Vars.deb11cis_section1 }}
   section_1/*/*.yml: {}
   {{ end }}
 
- # Section 2
+  # Section 2
   {{ if .Vars.deb11cis_section2 }}
   # Special Services
   section_2/cis_2.1/*.yml: {}
@@ -16,14 +18,14 @@ gossfile:
   section_2/cis_2.4/*.yml: {}
   {{ end }}
 
-# Section 3
+  # Section 3
   {{ if .Vars.deb11cis_section3 }}
   section_3/cis_3.1/*.yml: {}
   section_3/cis_3.2/*.yml: {}
   section_3/cis_3.3/*.yml: {}
   {{ end }}
 
-# Section 4
+  # Section 4
   {{ if .Vars.deb11cis_section4 }}
     # If ufw firewall
     {{ if eq .Vars.deb11cis_firewall_package "ufw" }}
@@ -39,12 +41,12 @@ gossfile:
     {{ end }}
   {{ end }}
 
-# Section 5
+  # Section 5
   {{ if .Vars.deb11cis_section5 }}
   section_5/*/*.yml: {}
   {{ end }}
 
-# Section 6
+  # Section 6
   {{ if .Vars.deb11cis_section6 }}
   # Aide
   section_6/cis_6.1/*.yml: {}
@@ -59,7 +61,7 @@ gossfile:
     {{ end }}
   {{ end }}
 
-# Section 7
+  # Section 7
   {{ if .Vars.deb11cis_section7 }}
   section_7/cis_7.*/*.yml: {}
   {{ end }}
