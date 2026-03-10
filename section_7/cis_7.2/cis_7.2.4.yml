@@ -4,7 +4,7 @@
   {{ if .Vars.deb11cis_rule_7_2_4 }}
 command:
   no_dup_uid:
-    title: 7.2.4 | Ensure no duplicate UIDs exist
+    title: 7.2.4 | Ensure shadow group is empty
     exec: "cat /etc/passwd | cut -d: -f3 | uniq -d"
     exit-status: 0
     stdout:

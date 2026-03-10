@@ -5,7 +5,7 @@
     {{ if .Vars.deb11cis_rule_1_7_10 }}
 file:
   /etc/gdm/custom.conf:
-    title: 1.7.10 | Ensure XDMCP is not enabled
+    title: 1.7.10 | Ensure XDCMP is not enabled
     path: /etc/gdm/custom.conf
     exists: true
     contents:

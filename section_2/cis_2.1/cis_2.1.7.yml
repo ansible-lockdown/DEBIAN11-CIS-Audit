@@ -1,19 +1,19 @@
 ---
 
 {{ if .Vars.deb11cis_level_1 }}
-  {{ if .Vars.deb11cis_rule_2_1_6 }}
+  {{ if .Vars.deb11cis_rule_2_1_7 }}
     {{ if not .Vars.deb11cis_ldap_server }}
       {{ if not .Vars.deb11cis_ldap_mask }}
 package:
   ldap_pkg:
-    title: 2.1.6 | Ensure ldap file server services are not in use | pkg removed
+    title: 2.1.7 | Ensure ldap server services are not in use | pkg removed
     name: slapd
     installed: false
     meta:
       server: 1
       workstation: 1
       CIS_ID:
-      - 2.1.6
+      - 2.1.7
       CISv8:
       - 4.8
       CISv8_IG1: false
@@ -25,7 +25,7 @@ package:
       {{ if .Vars.deb11cis_ldap_mask }}
 file:
   ldap_service_masked:
-    title: 2.1.6 | Ensure ldap server services are not in use | masked
+    title: 2.1.7 | Ensure ldap server services are not in use | masked
     path: /etc/systemd/system/slapd.service
     exists: true
     filetype: symlink
@@ -34,7 +34,7 @@ file:
       server: 1
       workstation: 1
       CIS_ID:
-      - 2.1.6
+      - 2.1.7
       CISv8:
       - 4.8
       CISv8_IG1: false
