@@ -525,10 +525,6 @@ deb11cis_time_servers:
     options: iburst
 
 # Section 3
-## Control 3.1.1 - Ensure system is checked to determine if IPv6 is enabled
-# This variable governs the mechanism of how the disabling of IPV6 is carried out.
-# Its possible values are `grub` and `sysctl`.
-deb11cis_ipv6_disable: grub
 
 ## Control 3.1.3 - Ensure bluetooth Services are not in use
 # This control manages how the bluetooth service is managed
@@ -558,24 +554,7 @@ deb11cis_firewall_package: "ufw"
 
 # Section 5
 
-deb11cis_ssh_strong_ciphers:
-  - aes256-gcm@openssh.com
-  - aes128-gcm@openssh.com
-  - aes256-ctr
-  - aes192-ctr
-  - aes128-ctr
-deb11cis_ssh_weak_ciphers:
-  - 3des-cbc
-  - aes128-cbc
-  - aes192-cbc
-  - aes256-cbc
-  - arcfour
-  - chacha20-poly1305@openssh.com
-  - arcfour128
-  - arcfour256
-  - blowfish-cbc
-  - cast128-cbc
-  - rijndael-cbc@lysator.liu.se
+deb11cis_sshd_weak_ciphers: -3des-cbc,aes128-cbc,aes192-cbc,aes256-cbc,chacha20-poly1305@openssh.com
 
 deb11cis_ssh_strong_macs:
   - hmac-sha1
@@ -599,29 +578,18 @@ deb11cis_ssh_weak_macs:
   - hmac-sha2-512-etm@openssh.com
   - hmac-sha2-256-etm@openssh.com
 
-deb11cis_ssh_strong_kex:
-  - ecdh-sha2-nistp256
-  - ecdh-sha2-nistp384
-  - ecdh-sha2-nistp521
-  - diffie-hellman-group-exchange-sha256
-  - diffie-hellman-group14-sha256
-  - diffie-hellman-group16-sha512
-  - diffie-hellman-group18-sha512
-deb11cis_ssh_weak_kex:
-  - diffie-hellman-group1-sha1
-  - diffie-hellman-group14-sha1
-  - diffie-hellman-group-exchange-sha1
+deb11cis_sshd_weak_kex: -diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1
 
 deb11cis_sshd_config_file: /etc/ssh/sshd_config
 
 ## 5.1.4 Note the following to understand precedence and layout, comma separated
-deb11cis_sshd_allowusers: vagrant
-deb11cis_sshd_allowgroups:
-deb11cis_sshd_denyusers: nobody
-deb11cis_sshd_denygroups:
+deb11cis_sshd_allow_users: vagrant
+deb11cis_sshd_allow_groups:
+deb11cis_sshd_deny_users: nobody
+deb11cis_sshd_deny_groups:
 
-deb11cis_ssh_clientaliveinterval: 15
-deb11cis_ssh_clientalivecountmax: 3
+deb11cis_sshd_client_alive_interval: 15
+deb11cis_sshd_client_alive_count_max: 3
 
 ## 5.2.7 set sugroup if differs from wheel
 deb11cis_sugroup: nosugroup

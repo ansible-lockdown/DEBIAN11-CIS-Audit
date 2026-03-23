@@ -11,9 +11,9 @@ command:
       - 0
       - 1
     stdout:
-    - allowusers: {{ .Vars.deb11cis_sshd_allowusers }}
-    - allowgroups: {{ .Vars.deb11cis_sshd_allowgroups }}
-    - denyusers: {{ .Vars.deb11cis_sshd_denyusers }}
+    - allowusers: {{ .Vars.deb11cis_sshd_allow_users }}
+    - allowgroups: {{ .Vars.deb11cis_sshd_allow_groups }}
+    - denyusers: {{ .Vars.deb11cis_sshd_deny_users }}
     - denygroups: {{ .Vars.deb11cis_sshd_denygroups }}
     meta:
       server: 1
