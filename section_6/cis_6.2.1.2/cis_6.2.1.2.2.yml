@@ -9,10 +9,10 @@ file:
     path: /etc/systemd/journal-upload.conf
     exists: true
     contents:
-    - '/^URL=/'
-    - '/ServerKeyFile=.*.pem'
-    - '/ServerCertificateFile=.*.pem'
-    - '/TrustedCertificateFile=.*.pem'
+    - '/^URL={{ .Vars.deb11cis_journal_upload_url }}/'
+    - '/ServerKeyFile={{ .Vars.deb11cis_journal_upload_serverkeyfile }}/'
+    - '/ServerCertificateFile={{ .Vars.deb11cis_journal_servercertificatefile }}/'
+    - '/TrustedCertificateFile={{ .Vars.deb11cis_journal_trustedcertificatefile }}/'
     meta:
       server: 1
       workstation: 1
