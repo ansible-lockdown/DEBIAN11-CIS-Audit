@@ -6,11 +6,11 @@
 file:
   timesynd_timeservers:
     title: 2.3.2.1 | Ensure systemd-timesyncd configured with authorized timeserver
-    path: /etc/systemd/timesyncd.conf.d/50-timesyncd.conf
+    path: /etc/systemd/timesyncd.conf.d/60-timesyncd.conf
     exists: true
     contents:
-    - '/^NTP={{ .Vars.deb11cis_time_pool_name }}/'
-    - '/^FallbackNTP={{- range .Vars.deb11cis_time_servers }}{{ .name }} {{ end }}/'
+    - '/^NTP={{ .Vars.deb11cis_time_pool.name }}/'
+    - '/^FallbackNTP={{- range .Vars.deb11cis_time_servers }} {{ .name }} {{ end }}/'
     meta:
       server: 1
       workstation: 1
