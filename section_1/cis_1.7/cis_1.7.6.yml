@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.deb11cis_gui }}
+{{ if .Vars.deb11cis_desktop_required }}
   {{ if .Vars.deb11cis_level_1 }}
     {{ if .Vars.deb11cis_rule_1_7_6 }}
 file:
@@ -19,10 +19,6 @@ file:
       workstation: 1
       CIS_ID:
       - 1.7.6
-      CISv8: 10.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
     {{ end }}
   {{ end }}
 {{ end }}

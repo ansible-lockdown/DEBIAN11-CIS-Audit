@@ -4,7 +4,7 @@
   {{ if .Vars.deb11cis_rule_5_1_5 }}
 file:
   ssh_banner:
-    title: 5.1.5 | Ensure sshd banner is configured | sshd_default
+    title: 5.1.5 | Ensure sshd Banner is configured | sshd_default
     path: /etc/ssh/sshd_config
     exists: true
     contents:
@@ -15,11 +15,6 @@ file:
       workstation: 1
       CIS_ID:
       - 5.1.5
-      CISv8:
-      - 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2
@@ -28,7 +23,7 @@ file:
       - IA-5
 command:
   ssh_configd_banner:
-    title: 5.1.5 | Ensure SSH warning banner configured | conf.d banner settings
+    title: 5.1.5 | Ensure sshd Banner is configured | conf.d banner settings
     exec: grep -Eis '^\s*Banner\s+"?none\b'/etc/ssh/sshd_config.d/*.conf
     exit-status:
       or:
@@ -42,11 +37,6 @@ command:
       workstation: 1
       CIS_ID:
       - 5.1.5
-      CISv8:
-      - 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2

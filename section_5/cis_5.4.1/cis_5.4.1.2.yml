@@ -4,7 +4,7 @@
   {{ if .Vars.deb11cis_rule_5_4_1_2 }}
 file:
   login_defs_min_days:
-    title: 5.4.1.2 | Ensure minimum password days is configured
+    title: 5.4.1.2 | Ensure minimum password age is configured
     path: /etc/login.defs
     exists: true
     contents:
@@ -15,14 +15,10 @@ file:
       workstation: 1
       CIS_ID:
       - 5.4.1.2
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5: NA
 command:
   check_users_MIN_DAYS:
-    title: 5.4.1.2 | Ensure minimum password days is configured | check users
+    title: 5.4.1.2 | Ensure minimum password age is configured | check users
     exec: "grep -E '^[^:]+:[^!*]' /etc/shadow | cut -d: -f1,4"
     exit-status: 0
     stdout:
@@ -32,10 +28,6 @@ command:
       workstation: 1
       CIS_ID:
       - 5.4.1.2
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5: NA
   {{ end }}
 {{ end }}

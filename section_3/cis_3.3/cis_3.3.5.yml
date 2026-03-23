@@ -4,7 +4,7 @@
   {{ if .Vars.deb11cis_rule_3_3_5 }}
 kernel-param:
   net.ipv4.conf.all.accept_redirects:
-    title: 3.3.5 | Ensure ICMP redirects are not accepted
+    title: 3.3.5 | Ensure icmp redirects are not accepted
     value: '0'
     name: net.ipv4.conf.all.accept_redirects
     meta:
@@ -12,10 +12,6 @@ kernel-param:
       workstation: 1
       CIS_ID:
       - 3.3.5
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2
@@ -23,7 +19,7 @@ kernel-param:
       - CM-7
       - IA-5
   net.ipv4.conf.default.accept_redirects:
-    title: 3.3.5 | Ensure ICMP redirects are not accepted
+    title: 3.3.5 | Ensure icmp redirects are not accepted
     value: '0'
     name: net.ipv4.conf.default.accept_redirects
     meta:
@@ -31,10 +27,6 @@ kernel-param:
       workstation: 1
       CIS_ID:
       - 3.3.5
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2
@@ -42,7 +34,7 @@ kernel-param:
       - CM-7
       - IA-5
   net.ipv6.conf.all.accept_redirects:
-    title: 3.3.5 | Ensure ICMP redirects are not accepted
+    title: 3.3.5 | Ensure icmp redirects are not accepted
     value: '0'
     name: net.ipv6.conf.all.accept_redirects
     meta:
@@ -50,10 +42,6 @@ kernel-param:
       workstation: 1
       CIS_ID:
       - 3.3.5
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2
@@ -61,7 +49,7 @@ kernel-param:
       - CM-7
       - IA-5
   net.ipv6.conf.default.accept_redirects:
-    title: 3.3.5 | Ensure ICMP redirects are not accepted
+    title: 3.3.5 | Ensure icmp redirects are not accepted
     value: '0'
     name: net.ipv6.conf.default.accept_redirects
     meta:
@@ -69,10 +57,6 @@ kernel-param:
       workstation: 1
       CIS_ID:
       - 3.3.5
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2
@@ -81,7 +65,7 @@ kernel-param:
       - IA-5
 command:
   ipv4_all_accept_redirects:
-    title: 3.3.5 | Ensure ICMP redirects are not accepted | live ipv4 all
+    title: 3.3.5 | Ensure icmp redirects are not accepted | live ipv4 all
     exec: grep net.ipv4.conf.all.accept_redirects /etc/sysctl.conf /etc/sysctl.d/*.conf /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf
     exit-status:
       or:
@@ -95,10 +79,6 @@ command:
       workstation: 1
       CIS_ID:
       - 3.3.5
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2
@@ -106,7 +86,7 @@ command:
       - CM-7
       - IA-5
   ipv4_default_accept_redirects:
-    title: 3.3.5 | Ensure ICMP redirects are not accepted | live ipv4 default
+    title: 3.3.5 | Ensure icmp redirects are not accepted | live ipv4 default
     exec: grep net.ipv4.conf.default.accept_redirects /etc/sysctl.conf /etc/sysctl.d/*.conf /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf
     exit-status:
       or:
@@ -120,10 +100,6 @@ command:
       workstation: 1
       CIS_ID:
       - 3.3.5
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2
@@ -131,7 +107,7 @@ command:
       - CM-7
       - IA-5
   ipv6_all_accept_redirects:
-    title: 3.3.5 | Ensure ICMP redirects are not accepted | live ipv6 all
+    title: 3.3.5 | Ensure icmp redirects are not accepted | live ipv6 all
     exec: grep net.ipv6.conf.all.accept_redirects /etc/sysctl.conf /etc/sysctl.d/*.conf /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf
     exit-status:
       or:
@@ -145,10 +121,6 @@ command:
       workstation: 1
       CIS_ID:
       - 3.3.5
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2
@@ -156,7 +128,7 @@ command:
       - CM-7
       - IA-5
   ipv6_default_accept_redirects:
-    title: 3.3.5 | Ensure ICMP redirects are not accepted | live ipv6 default
+    title: 3.3.5 | Ensure icmp redirects are not accepted | live ipv6 default
     exec: grep net.ipv6.conf.default.accept_redirects /etc/sysctl.conf /etc/sysctl.d/*.conf /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf
     exit-status:
       or:
@@ -170,10 +142,6 @@ command:
       workstation: 1
       CIS_ID:
       - 3.3.5
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2

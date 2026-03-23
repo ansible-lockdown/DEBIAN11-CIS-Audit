@@ -5,7 +5,7 @@
     {{ if .Vars.deb11cis_rule_7_2_9 }}
 command:
   dot_netrc_perms:
-    title: 7.2.9 | Ensure local interactive user dot files access is configured
+    title: 7.2.9 | Ensure local interactive user home directories are configured
     exec: 'find /home/  \( -name .netrc -o -name .rhost -o -name .forward \)'
     exit-status: 0
     timeout: {{ .Vars.timeout_ms }}
@@ -16,10 +16,6 @@ command:
       workstation: 1
       CIS_ID:
       - 7.2.9
-      CISv8: 3.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2
