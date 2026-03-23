@@ -2,7 +2,7 @@
 
 {{ if .Vars.deb11cis_level_1 }}
   {{ if .Vars.deb11cis_rule_6_2_1_2_1 }}
-    {{ if not .Vars.deb11cis_is_syslog_server }}
+    {{ if not .Vars.deb11cis_system_is_log_server }}
 package:
   systemd-journal-remote:
     title: 6.2.1.2.1 | Ensure systemd-journal-remote is installed

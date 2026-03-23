@@ -619,7 +619,7 @@ deb11cis_syslog: journald
 
 # Control 6.2.3. x
 ## Set if host is a logserver
-deb11cis_is_syslog_server: false
+deb11cis_system_is_log_server: false
 
 # Log server settings
 deb11cis_remote_log_host: logagg.example.com
@@ -627,10 +627,6 @@ deb11cis_remote_log_port: 514
 deb11cis_remote_log_protocol: tcp
 deb11cis_remote_log_retrycount: 100
 deb11cis_remote_log_queuesize: 1000
-
-# 6.3
-## If using auditd settings
-deb11cis_auditd: true
 
 # Control 7.1.12
 deb11cis_exclude_unowned_search_path: \(! -path "/run/user/*" -a ! -path "/proc/*" -a ! -path "*/containerd/*" -a ! -path "*/kubelet/pods/*" -a ! -path "*/kubelet/plugins/*" -a ! -path "/sys/fs/cgroup/memory/*" -a ! -path "/var/*/private/*" \)
