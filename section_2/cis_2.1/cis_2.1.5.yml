@@ -6,7 +6,7 @@
       {{ if not .Vars.deb11cis_dnsmasq_mask }}
 package:
   dnsmasq_pkg:
-    title: 2.1.5 | Ensure dnsmasq server services are not in use | pkg removed
+    title: 2.1.5 | Ensure dnsmasq services are not in use | pkg removed
     name: dnsmasq
     installed: false
     meta:
@@ -14,18 +14,13 @@ package:
       workstation: 1
       CIS_ID:
       - 2.1.5
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-7
       {{ end }}
       {{ if .Vars.deb11cis_dnsmasq_mask }}
 file:
   dnsmasq_service_masked:
-    title: 2.1.5 | Ensure dnsmasq server services are not in use | masked
+    title: 2.1.5 | Ensure dnsmasq services are not in use | masked
     path: /etc/systemd/system/dnsmasq.service
     exists: true
     filetype: symlink
@@ -35,11 +30,6 @@ file:
       workstation: 1
       CIS_ID:
       - 2.1.5
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-7
       {{ end }}

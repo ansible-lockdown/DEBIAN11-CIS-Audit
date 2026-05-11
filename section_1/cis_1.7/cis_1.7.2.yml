@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.deb11cis_gui }}
+{{ if .Vars.deb11cis_desktop_required }}
   {{ if .Vars.deb11cis_level_1 }}
     {{ if .Vars.deb11cis_rule_1_7_2 }}
 command:
@@ -18,11 +18,6 @@ command:
       workstation: 1
       CIS_ID:
       - 1.7.2
-      CISv8:
-      - 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
   gdm_banner_msg:
     title: 1.7.2 | Ensure GDM login banner is configured
     exec: grep "[org/gnome/login-screen]" /etc/dconf/db/gdm.d/* | grep banner-message
@@ -39,11 +34,6 @@ command:
       workstation: 1
       CIS_ID:
       - 1.7.2
-      CISv8:
-      - 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
     {{ end }}
   {{ end }}
 {{ end }}

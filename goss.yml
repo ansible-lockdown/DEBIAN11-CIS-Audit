@@ -55,9 +55,7 @@ gossfile:
   section_6/cis_6.2.*/*.yml: {}
   # Auditd
     {{ if .Vars.deb11cis_level_2 }}
-      {{ if .Vars.deb11cis_auditd }}
   section_6/cis_6.3.*/*.yml: {}
-      {{ end }}
     {{ end }}
   {{ end }}
 

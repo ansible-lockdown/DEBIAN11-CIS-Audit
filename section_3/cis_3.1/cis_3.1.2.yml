@@ -13,14 +13,9 @@ command:
       server: 1
       workstation: 1
       CIS_ID: 3.1.2
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5: CM-7
   blacklist_wireless:
-    title: 3.1.1 | Ensure wireless interfaces are disabled | blacklist
+    title: 3.1.2 | Ensure wireless interfaces are disabled | blacklist
     exit-status: 0
     exec: grep wireless /etc/modprobe.d/*.conf
     stdout:
@@ -28,12 +23,7 @@ command:
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 3.1.1
-      CISv8:
-      - 4.8
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
+      CIS_ID: 3.1.2
       NIST800-53R5: CM-7
   {{ end }}
 {{ end }}
