@@ -1,5 +1,6 @@
 ---
-{{ if .Vars.deb11cis_level_2 }}
+
+{{ if .Vars.deb11cis_level_1 }}
   {{ if not .Vars.deb11cis_ldap_clients_required }}
     {{ if .Vars.deb11cis_rule_2_2_5 }}
 package:
@@ -8,8 +9,8 @@ package:
     installed: false
     name: ldap-utils
     meta:
-      server: 2
-      workstation: 2
+      server: 1
+      workstation: 1
       CIS_ID:
       - 2.2.5
       NIST800-53R5:

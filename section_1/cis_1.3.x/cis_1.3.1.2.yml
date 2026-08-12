@@ -9,8 +9,8 @@ file:
     exists: true
     path: /etc/default/grub
     contents:
-    - '/GRUB_CMDLINE_LINUX_DEFAULT=.*apparmor=1/'
-    - '/GRUB_CMDLINE_LINUX_DEFAULT=.*security=apparmor/'
+    - '/^GRUB_CMDLINE_LINUX_DEFAULT=.*apparmor=1/'
+    - '/^GRUB_CMDLINE_LINUX_DEFAULT=.*security=apparmor/'
     meta:
       server: 1
       workstation: 1

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.deb11cis_level_1 }}
-  {{ if .Vars.deb11cis_rule_7_1_7 }}
+  {{ if .Vars.deb11cis_rule_7_1_6 }}
 file:
   etc_shadow-_perms:
     title: 7.1.6 | Ensure permissions on /etc/shadow- are configured
