@@ -24,6 +24,25 @@
 - Added deb11cis_rule_1_5_5, deb11cis_rule_6_1_3 and deb11cis_apport_mask to vars/CIS.yml
 - Corrected stale section numbers in vars/CIS.yml comments
 
+### QA pass
+
+- 7.2.4 was a byte-for-byte copy of the 7.2.5 duplicate-UID test and reused its resource key
+  no_dup_uid. Goss overwrites duplicate keys on load, so 7.2.4 was silently dropped from every
+  run. Replaced with a real shadow-group-empty check
+- 5.4.2.8 used bash process substitution and 5.4.1.6 used a bash [[ ]] test. Goss runs commands
+  under sh, which is dash on Debian, so both failed to parse, produced no output and always
+  reported compliant. Rewritten POSIX-safe. 5.4.1.6 also asserted on "Failure" while the script
+  echoes "failure"
+- 1.6.1, 1.6.2 and 1.6.3 carried an unterminated regex '!/[Ll]inux' which goss treats as a
+  literal substring, so the OS-leak check never fired. Terminated
+- Anchored config-file patterns in 1.3.1.2, 5.1.7, 5.1.14, 5.1.16, 6.2.1.2.2 and the 19 fstab
+  persistence checks. Without a start anchor a commented-out line satisfied the test
+- Added the missing timeout to the 6.2.2.1 recursive find
+- Document markers added or corrected in 4 test files
+- CONTRIBUTING.md header corrected to Ansible-Lockdown Projects
+- goss documentation links aligned with the other audit repos
+- .gitignore now carries the secrets and QA artifact patterns it was missing
+
 ## 2.0.0
 
 - 2.0.0 Updates from 2026_Jan_Updates
