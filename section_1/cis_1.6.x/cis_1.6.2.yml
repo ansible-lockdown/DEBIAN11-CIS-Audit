@@ -14,7 +14,7 @@ file:
     - '!/[Rr]ocky.*/'
     - '!/[Aa]lma.*/'
     - '!/x86_64/'
-    - '!/[Ll]inux'
+    - '!/[Ll]inux/'
     - '{{ .Vars.deb11cis_warning_banner }}'
     meta:
       server: 1
