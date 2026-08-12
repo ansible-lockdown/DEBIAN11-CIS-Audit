@@ -42,6 +42,14 @@
 - CONTRIBUTING.md header corrected to Ansible-Lockdown Projects
 - goss documentation links aligned with the other audit repos
 - .gitignore now carries the secrets and QA artifact patterns it was missing
+- 3.1.2 asserted that modprobe blacklist entries exist whether or not the host has wireless
+  hardware, so it always failed on hardware without it while remediation correctly did nothing.
+  Replaced with the interface-aware check used by the other Debian audit repos
+- 2.3.2.1 built its NTP pattern with a leading space after the "=", so it could never match what
+  the remediation template writes
+- 6.4.3.9 looked for `-F key=perm_mod` while the rules template writes `-k perm_mod`, and used
+  one b32 chown syscall order for both the rules file and `auditctl -l`. The kernel normalises
+  the live order differently, so each resource now carries the order its own source produces
 
 ## 2.0.0
 
