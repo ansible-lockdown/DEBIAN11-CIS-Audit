@@ -1,11 +1,10 @@
 ---
-
 {{ if .Vars.deb11cis_level_1 }}
   {{ if .Vars.deb11cis_rule_7_2_6 }}
 command:
-  no_dup_username:
+  no_dup_gid:
     title: 7.2.6 | Ensure no duplicate GIDs exist
-    exec: "cat /etc/passwd | cut -d: -f1 | uniq -d"
+    exec: "cat /etc/group | cut -d: -f3 | uniq -d"
     exit-status: 0
     stdout:
     - '!/./'
@@ -14,11 +13,5 @@ command:
       workstation: 1
       CIS_ID:
       - 7.2.6
-      NIST800-53R5:
-      - CM-1
-      - CM-2
-      - CM-6
-      - CM-7
-      - IA-5
   {{ end }}
 {{ end }}

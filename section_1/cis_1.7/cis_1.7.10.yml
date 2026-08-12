@@ -4,9 +4,9 @@
   {{ if .Vars.deb11cis_level_1 }}
     {{ if .Vars.deb11cis_rule_1_7_10 }}
 file:
-  /etc/gdm/custom.conf:
+  gdm_xdcmp_disabled:
     title: 1.7.10 | Ensure XDCMP is not enabled
-    path: /etc/gdm/custom.conf
+    path: /etc/gdm3/custom.conf
     exists: true
     contents:
     - '!/^Enable( |)=( |)true/'

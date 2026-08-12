@@ -11,7 +11,7 @@ command:
     - install /bin/true
     meta:
       server: 1
-      workstation: 1
+      workstation: NA
       CIS_ID: 3.1.2
       NIST800-53R5: CM-7
   blacklist_wireless:
@@ -22,7 +22,7 @@ command:
       - '/blacklist wireless/'
     meta:
       server: 1
-      workstation: 1
+      workstation: NA
       CIS_ID: 3.1.2
       NIST800-53R5: CM-7
   {{ end }}
