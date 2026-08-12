@@ -22,7 +22,7 @@ command:
     exec: "grep -E '^[^:]+:[^!*]' /etc/shadow | cut -d: -f1,4"
     exit-status: 0
     stdout:
-    - '!/.*/'
+    - '!/^.*:0$/'
     meta:
       server: 2
       workstation: 2
