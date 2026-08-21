@@ -23,6 +23,7 @@
 - Titles corrected for 1.4.2, 6.4.1.1, 6.4.2.4, 6.4.3.6 and 6.4.3.7
 - Added deb11cis_rule_1_5_5, deb11cis_rule_6_1_3 and deb11cis_apport_mask to vars/CIS.yml
 - Corrected stale section numbers in vars/CIS.yml comments
+- README updates and updated contributing and contributors
 
 ### QA pass
 
