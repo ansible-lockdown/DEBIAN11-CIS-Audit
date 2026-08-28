@@ -8,10 +8,10 @@ file:
     path: /etc/ssh/sshd_config
     exists: true
     contents:
-    - 'ClientAliveInterval {{ .Vars.deb11cis_sshd_client_alive_interval }}'
-    - 'ClientAliveCountMax {{ .Vars.deb11cis_sshd_client_alive_count_max }}'
-    - '/ClientAliveInterval ([1-9]|[1-2][0-9][0-9]|300)/'
-    - '/ClientAliveCountMax [0-3]/'
+    - '/^ClientAliveInterval {{ .Vars.deb11cis_sshd_client_alive_interval }}/'
+    - '/^ClientAliveCountMax {{ .Vars.deb11cis_sshd_client_alive_count_max }}/'
+    - '/^ClientAliveInterval ([1-9]|[1-2][0-9][0-9]|300)/'
+    - '/^ClientAliveCountMax [0-3]/'
     meta:
       server: 1
       workstation: 1

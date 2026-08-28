@@ -6,7 +6,7 @@
 
 [Centre For Internet Security]
 
-This repository is set of configuration files and directories to run the audit of the relevant benchmark of Debian 11 servers
+This repository is a set of configuration files and directories to run the audit of the relevant benchmark of Debian 11 servers
 
 This is configured in a directory structure level.
 
@@ -28,7 +28,7 @@ The listed variable for every control/benchmark can be turned on/off or section
 
 ## Requirements
 
-goss >= 0.4.4
+goss >= 0.4.8
 root privileges
 
 ## Branches
@@ -42,7 +42,7 @@ Details will show in the README as part of the remediation as to the benchmark f
 
 ## Usage
 
-Fot the latest information on audit and how it can be used please visit
+For the latest information on audit and how it can be used please visit
 
 [Read the Docs - Audit]
 
@@ -58,6 +58,12 @@ Ability to add your own requirements is available in several sections
 
 [MindPoint Group]
 
+## Contributing
+
+Bug reports and feature requests are welcome from everyone, please raise an issue.
+
+Pull requests are accepted from approved contributors only. To be onboarded, join the [Discord Server](https://www.lockdownenterprise.com/discord) and request contributor access. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full process.
+
 ## Links and Further information
 
 - [Goss]
@@ -71,9 +77,9 @@ README Links
 [Centre For Internet Security]: https://www.cisecurity.org
 [Read the Docs - Audit]: https://ansible-lockdown.readthedocs.io/en/latest/audit/getting-started-audit.html
 
-[goss documentation]: (https://github.com/goss-org/goss/blob/master/README.md)
+[goss documentation]: (https://github.com/krameff/goss/blob/devel/docs/index.md)
 
-[Goss]: https://goss.rocks
+[Goss]: https://github.com/krameff/goss
 
 [MindPoint Group]: https://mindpointgroup.com/cybersecurity-consulting/automate/baseline-modernization#GH_LockdownReadMe
 [Discord Community Discussions]: https://www.lockdownenterprise.com/discord

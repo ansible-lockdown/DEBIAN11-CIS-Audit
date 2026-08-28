@@ -24,7 +24,7 @@ file:
     exists: true
     path: /etc/fstab
     contents:
-    - '/\s\/var\/tmp\s.*noexec.*/'
+    - '/^\S+\s+\/var\/tmp\s.*noexec.*/'
     meta:
       server: 1
       workstation: 1

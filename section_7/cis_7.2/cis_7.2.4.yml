@@ -2,23 +2,20 @@
 
 {{ if .Vars.deb11cis_level_1 }}
   {{ if .Vars.deb11cis_rule_7_2_4 }}
-command:
-  no_dup_uid:
+file:
+  shadow_group_empty:
     title: 7.2.4 | Ensure shadow group is empty
-    exec: "cat /etc/passwd | cut -d: -f3 | uniq -d"
-    exit-status: 0
-    stdout:
-    - '!/./'
+    path: /etc/group
+    exists: true
+    contents:
+    - '/^shadow:x:\d{2,}:$/'
+    - '!/^shadow:x:\d{2,}:./'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 7.2.4
       NIST800-53R5:
-      - CM-1
-      - CM-2
-      - CM-6
-      - CM-7
       - IA-5
   {{ end }}
 {{ end }}
