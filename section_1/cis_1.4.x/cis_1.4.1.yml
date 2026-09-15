@@ -6,7 +6,7 @@
 file:
   grub_bootloader_passwd_live:
     title: 1.4.1 | Ensure bootloader password is set
-    path: /boot/grub/grub.conf
+    path: /boot/grub/grub.cfg
     exists: true
     contents:
     - '/^set superusers=/'

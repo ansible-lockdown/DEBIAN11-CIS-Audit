@@ -99,6 +99,8 @@ deb11cis_rule_1_5_1: true
 deb11cis_rule_1_5_2: true
 deb11cis_rule_1_5_3: true
 deb11cis_rule_1_5_4: true
+deb11cis_rule_1_5_5: true
+deb11cis_apport_mask: false
 
 # Command line warning banners
 deb11cis_rule_1_6_1: true
@@ -289,7 +291,7 @@ deb11cis_rule_5_3_3_2_5: true
 deb11cis_rule_5_3_3_2_6: true
 deb11cis_rule_5_3_3_2_7: true
 deb11cis_rule_5_3_3_2_8: true
-# 5.3.3.3 Configure pam_history module
+# 5.3.3.3 Configure pam_pwhistory module
 # These are added as part of 5.3.2.4 using jinja2 template
 deb11cis_rule_5_3_3_3_1: true
 deb11cis_rule_5_3_3_3_2: true
@@ -325,6 +327,7 @@ deb11cis_rule_5_4_3_3: true
 # 6.1 Configure Filesystem Integrity Checking
 deb11cis_rule_6_1_1: true
 deb11cis_rule_6_1_2: true
+deb11cis_rule_6_1_3: true
 
 # 6.2.1.1 Configure systemd-journald service
 deb11cis_rule_6_2_1_1_1: true
@@ -340,49 +343,49 @@ deb11cis_rule_6_2_1_2_3: true
 deb11cis_rule_6_2_1_2_4: true
 # 6.2.2 Configure Logfiles
 deb11cis_rule_6_2_2_1: true
-# 6.3.1 Configure auditd Service
-deb11cis_rule_6_3_1_1: true
-deb11cis_rule_6_3_1_2: true
-deb11cis_rule_6_3_1_3: true
-deb11cis_rule_6_3_1_4: true
-# 6.3.2 Configure data retention
-deb11cis_rule_6_3_2_1: true
-deb11cis_rule_6_3_2_2: true
-deb11cis_rule_6_3_2_3: true
-deb11cis_rule_6_3_2_4: true
-# 6.3.3 Configure auditd rules
-deb11cis_rule_6_3_3_1: true
-deb11cis_rule_6_3_3_2: true
-deb11cis_rule_6_3_3_3: true
-deb11cis_rule_6_3_3_4: true
-deb11cis_rule_6_3_3_5: true
-deb11cis_rule_6_3_3_6: true
-deb11cis_rule_6_3_3_7: true
-deb11cis_rule_6_3_3_8: true
-deb11cis_rule_6_3_3_9: true
-deb11cis_rule_6_3_3_10: true
-deb11cis_rule_6_3_3_11: true
-deb11cis_rule_6_3_3_12: true
-deb11cis_rule_6_3_3_13: true
-deb11cis_rule_6_3_3_14: true
-deb11cis_rule_6_3_3_15: true
-deb11cis_rule_6_3_3_16: true
-deb11cis_rule_6_3_3_17: true
-deb11cis_rule_6_3_3_18: true
-deb11cis_rule_6_3_3_19: true
-deb11cis_rule_6_3_3_20: true
-deb11cis_rule_6_3_3_21: true
-# 6.3.4 Configure audit file access
-deb11cis_rule_6_3_4_1: true
-deb11cis_rule_6_3_4_2: true
-deb11cis_rule_6_3_4_3: true
-deb11cis_rule_6_3_4_4: true
-deb11cis_rule_6_3_4_5: true
-deb11cis_rule_6_3_4_6: true
-deb11cis_rule_6_3_4_7: true
-deb11cis_rule_6_3_4_8: true
-deb11cis_rule_6_3_4_9: true
-deb11cis_rule_6_3_4_10: true
+# 6.4.1 Configure auditd Service
+deb11cis_rule_6_4_1_1: true
+deb11cis_rule_6_4_1_2: true
+deb11cis_rule_6_4_1_3: true
+deb11cis_rule_6_4_1_4: true
+# 6.4.2 Configure data retention
+deb11cis_rule_6_4_2_1: true
+deb11cis_rule_6_4_2_2: true
+deb11cis_rule_6_4_2_3: true
+deb11cis_rule_6_4_2_4: true
+# 6.4.3 Configure auditd rules
+deb11cis_rule_6_4_3_1: true
+deb11cis_rule_6_4_3_2: true
+deb11cis_rule_6_4_3_3: true
+deb11cis_rule_6_4_3_4: true
+deb11cis_rule_6_4_3_5: true
+deb11cis_rule_6_4_3_6: true
+deb11cis_rule_6_4_3_7: true
+deb11cis_rule_6_4_3_8: true
+deb11cis_rule_6_4_3_9: true
+deb11cis_rule_6_4_3_10: true
+deb11cis_rule_6_4_3_11: true
+deb11cis_rule_6_4_3_12: true
+deb11cis_rule_6_4_3_13: true
+deb11cis_rule_6_4_3_14: true
+deb11cis_rule_6_4_3_15: true
+deb11cis_rule_6_4_3_16: true
+deb11cis_rule_6_4_3_17: true
+deb11cis_rule_6_4_3_18: true
+deb11cis_rule_6_4_3_19: true
+deb11cis_rule_6_4_3_20: true
+deb11cis_rule_6_4_3_21: true
+# 6.4.4 Configure audit file access
+deb11cis_rule_6_4_4_1: true
+deb11cis_rule_6_4_4_2: true
+deb11cis_rule_6_4_4_3: true
+deb11cis_rule_6_4_4_4: true
+deb11cis_rule_6_4_4_5: true
+deb11cis_rule_6_4_4_6: true
+deb11cis_rule_6_4_4_7: true
+deb11cis_rule_6_4_4_8: true
+deb11cis_rule_6_4_4_9: true
+deb11cis_rule_6_4_4_10: true
 
 ## Section 7
 # 7.1 System File Permissions
@@ -428,7 +431,7 @@ deb11cis_apparmor_disable: false
 deb11cis_warning_banner: Authorized users only. All activity may be monitored and reported.
 # End Banner
 
-# 1.8 Gnome Desktop
+# 1.7 Gnome Display Manager
 deb11cis_dconf_db_name: local
 
 # Section 2
@@ -538,10 +541,10 @@ deb11cis_bluetooth_mask: false
 ## IPv6 required
 deb11cis_ipv6_required: true
 
-## 3.2 System network parameters (host only OR host and router)
+## 3.3 System network parameters (host only OR host and router)
 deb11cis_is_router: false
 
-## Section 3.4
+## Section 4
 
 ## Controls 4.1.x, 4.2.x, and 4.3.x - Firewall configuration
 # This variable represents the toggle for which firewall package is used.
@@ -617,7 +620,7 @@ deb11cis_aide_scan: cron
 ## change to rsyslog/ journald or other
 deb11cis_syslog: journald
 
-# Control 6.2.3. x
+# Control 6.2.1.2.x
 ## Set if host is a logserver
 deb11cis_system_is_log_server: false
 

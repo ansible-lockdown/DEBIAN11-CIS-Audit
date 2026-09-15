@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.deb11cis_level_1 }}
+{{ if .Vars.deb11cis_level_2 }}
   {{ if .Vars.deb11cis_rule_2_1_2 }}
     {{ if not .Vars.deb11cis_avahi_server }}
       {{ if not .Vars.deb11cis_avahi_mask }}

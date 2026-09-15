@@ -24,7 +24,7 @@ file:
     exists: true
     path: /etc/fstab
     contents:
-    - '/\s\/home.*nosuid.*/'
+    - '/^\S+\s+\/home.*nosuid.*/'
     meta:
       server: 1
       workstation: 1

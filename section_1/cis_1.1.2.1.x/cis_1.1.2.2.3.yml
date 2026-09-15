@@ -24,7 +24,7 @@ file:
     exists: true
     path: /etc/fstab
     contents:
-    - '/\s\/dev\/shm.*nosuid.*/'
+    - '/^\S+\s+\/dev\/shm.*nosuid.*/'
     meta:
       server: 1
       workstation: 1

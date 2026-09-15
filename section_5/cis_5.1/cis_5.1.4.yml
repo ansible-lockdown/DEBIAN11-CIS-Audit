@@ -2,6 +2,7 @@
 
 {{ if .Vars.deb11cis_level_1 }}
   {{ if .Vars.deb11cis_rule_5_1_4 }}
+{{ if or .Vars.deb11cis_sshd_allow_users .Vars.deb11cis_sshd_allow_groups .Vars.deb11cis_sshd_deny_users .Vars.deb11cis_sshd_deny_groups }}
 command:
   sshd_access_limited:
     title: 5.1.4 | Ensure sshd access is configured | config
@@ -11,10 +12,18 @@ command:
       - 0
       - 1
     stdout:
-    - allowusers: {{ .Vars.deb11cis_sshd_allow_users }}
-    - allowgroups: {{ .Vars.deb11cis_sshd_allow_groups }}
-    - denyusers: {{ .Vars.deb11cis_sshd_deny_users }}
-    - denygroups: {{ .Vars.deb11cis_sshd_deny_groups }}
+{{ if .Vars.deb11cis_sshd_allow_users }}
+    - '/(?i)AllowUsers\s+{{ .Vars.deb11cis_sshd_allow_users }}/'
+{{ end }}
+{{ if .Vars.deb11cis_sshd_allow_groups }}
+    - '/(?i)AllowGroups\s+{{ .Vars.deb11cis_sshd_allow_groups }}/'
+{{ end }}
+{{ if .Vars.deb11cis_sshd_deny_users }}
+    - '/(?i)DenyUsers\s+{{ .Vars.deb11cis_sshd_deny_users }}/'
+{{ end }}
+{{ if .Vars.deb11cis_sshd_deny_groups }}
+    - '/(?i)DenyGroups\s+{{ .Vars.deb11cis_sshd_deny_groups }}/'
+{{ end }}
     meta:
       server: 1
       workstation: 1
@@ -23,5 +32,6 @@ command:
       NIST800-53R5:
       - AC-3
       - MP-2
+{{ end }}
   {{ end }}
 {{ end }}

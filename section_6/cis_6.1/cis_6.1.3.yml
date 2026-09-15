@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.deb11cis_level_2 }}
+  {{ if .Vars.deb11cis_rule_6_1_3 }}
+file:
+  audit_bins_crypto_aide:
+    title: 6.1.3 | Ensure cryptographic mechanisms are used to protect the integrity of audit tools
+    path: /etc/aide/aide.conf
+    exists: true
+    contents:
+    - '/usr/sbin/auditctl p+i+n+u+g+s+b+acl+xattrs+sha512'
+    - '/usr/sbin/auditd p+i+n+u+g+s+b+acl+xattrs+sha512'
+    - '/usr/sbin/ausearch p+i+n+u+g+s+b+acl+xattrs+sha512'
+    - '/usr/sbin/aureport p+i+n+u+g+s+b+acl+xattrs+sha512'
+    - '/usr/sbin/autrace p+i+n+u+g+s+b+acl+xattrs+sha512'
+    - '/usr/sbin/augenrules p+i+n+u+g+s+b+acl+xattrs+sha512'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 6.1.3
+      NIST800-53R5:
+      - NA
+  {{ end }}
+{{ end }}

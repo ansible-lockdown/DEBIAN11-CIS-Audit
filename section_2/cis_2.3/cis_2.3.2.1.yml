@@ -9,8 +9,8 @@ file:
     path: /etc/systemd/timesyncd.conf.d/60-timesyncd.conf
     exists: true
     contents:
-    - '/^NTP={{- range .Vars.deb11cis_time_pool }} {{ .name }} {{ end }}/'
-    - '/^FallbackNTP={{- range .Vars.deb11cis_time_servers }} {{ .name }} {{ end }}/'
+    - '/^NTP={{- range .Vars.deb11cis_time_pool }}{{ .name }} {{ end }}/'
+    - '/^FallbackNTP={{- range .Vars.deb11cis_time_servers }}{{ .name }} {{ end }}/'
     meta:
       server: 1
       workstation: 1

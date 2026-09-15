@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.deb11cis_level_1 }}
+{{ if .Vars.deb11cis_level_2 }}
   {{ if .Vars.deb11cis_rule_1_1_1_8 }}
 command:
   usb-storage:

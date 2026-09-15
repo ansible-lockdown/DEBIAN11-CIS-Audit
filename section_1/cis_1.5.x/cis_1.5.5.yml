@@ -1,0 +1,39 @@
+---
+
+{{ if .Vars.deb11cis_level_1 }}
+  {{ if .Vars.deb11cis_rule_1_5_5 }}
+    {{ if .Vars.deb11cis_apport_mask }}
+file:
+  error_report_apport_disabled:
+    title: 1.5.5 | Ensure Automatic Error Reporting is not enabled | apport disabled
+    path: /etc/default/apport
+    exists: true
+    contents:
+    - '/^\s*enabled\s*=\s*0\s*$/'
+    - '!/^\s*enabled\s*=\s*[1-9]/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.5.5
+      NIST800-53R5:
+      - CM-1
+      - CM-3
+      - CM-6
+    {{ else }}
+package:
+  apport:
+    title: 1.5.5 | Ensure Automatic Error Reporting is not enabled | package not installed
+    installed: false
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.5.5
+      NIST800-53R5:
+      - CM-1
+      - CM-3
+      - CM-6
+    {{ end }}
+  {{ end }}
+{{ end }}
