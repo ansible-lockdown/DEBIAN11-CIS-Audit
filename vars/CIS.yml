@@ -608,6 +608,10 @@ deb11cis_passwd_complex_option: minclass
 deb11cis_pass_max_days: "365"
 deb11cis_pass_min_days: "1"
 deb11cis_pass_warn_age: "7"
+# per-user checks are skipped unless the role was told to change existing users
+deb11cis_force_user_maxdays: false
+deb11cis_force_user_mindays: false
+deb11cis_force_user_warnage: false
 
 # Section 6
 

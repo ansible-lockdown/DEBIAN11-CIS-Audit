@@ -24,6 +24,7 @@ command:
       - IA-5
   check_user_expiry:
     title: 5.4.1.1 | Ensure password expiration is configured | check_users
+    skip: {{ not .Vars.deb11cis_force_user_maxdays }}
     exec: |
       awk -F: '($2~/^\$.+\$/) {if($5 > 365 || $5 < 1) print "FAIL: " $1 " PASS_MAX_DAYS: " $5}' /etc/shadow
       echo "scan_done"
