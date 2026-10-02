@@ -31,6 +31,11 @@
 - 6.4.4.x log, config and tool tests report every non-compliant file
 - 7.1.13 lists SUID/SGID files, fails on unpackaged or modified ones
 - 7.2.9 home directory mode check covers every home directory
+- 1.7.2 and 1.7.3 check system-db:gdm and the gdm.d keyfiles
+- 1.7.3 bracket-expression grep replaced
+- 1.7.4 to 1.7.9 dconf paths templated, section headers matched literally
+- 1.7.5, 1.7.7 and 1.7.9 lock tests read every file in the locks directory
+- 1.7.4 checks the user profile
 
 ## Aug26 Updates
 
