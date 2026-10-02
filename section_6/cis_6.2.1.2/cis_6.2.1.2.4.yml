@@ -33,7 +33,7 @@ service:
 command:
   journald_service_masked:
     title: 6.2.1.2.4 | Ensure systemd-journal-remote service is not in use | service masked
-    exec: systemctl is-enabled systemd-journal-remote.socket
+    exec: systemctl is-enabled systemd-journal-remote.service
     exit-status: 1
     stdout:
     - '/^masked/'
