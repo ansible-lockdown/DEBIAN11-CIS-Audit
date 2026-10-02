@@ -1,5 +1,37 @@
 # Changes to DEBIAN11-CIS-Audit
 
+## CIS Benchmark v2.0.0
+## October 2026 Updates
+
+- 2.4.1.3 to 2.4.1.7 split into one file per control
+- 5.1.3 public host key perms test fixed: variable name, mask /133
+- 5.1.2 and 5.1.3 find -name globs quoted
+- 7.2.5 to 7.2.8 duplicate checks sort before uniq -d
+- 6.2.1.1.3 to 6.2.1.1.6 journald tests read systemd-analyze cat-config
+- 1.3.1.3 AppArmor profile count comparison corrected
+- 1.3.1.4 complain mode test made dash-compatible and corrected
+- 1.7.2 invalid YAML escape removed from banner text assertions
+- 4.2.3 iptables flushed test uses iptables -S without policy lines
+- 5.1.5 sshd_config.d Banner grep missing space fixed
+- 5.3.3.4.1 and 5.3.3.4.2 brace expansion replaced with explicit file list
+- 5.4.1.1, 5.4.1.2, 5.4.1.3 and 5.4.1.5 per-user tests flag each failing account
+- 5.4.1.5 INACTIVE default regex anchored
+- 5.4.2.2 and 5.4.2.3 GID 0 tests flag any non-root entry
+- 5.4.2.5 root PATH test detects empty and relative entries
+- run_audit.sh: OS name and version fallback without /etc/os-release
+- vars/CIS.yml: journal upload and sshd weak MACs vars added
+- LICENSE: company name updated to MindPoint Group - A Quantum Sky Company
+- 1.5.1 and 1.5.2 sysctl conf regex fixed, conflicting values detected
+- 1.7.2 checks the gdm profile and the dconf db banner settings
+- 5.1.2 private key mode 0600 required when group is root
+- 5.4.1.1 to 5.4.1.3 per-user checks skipped unless deb11cis_force_user_* set
+- 5.4.2.1 detects any non-root UID 0 account
+- 6.1.2 cron check uses the benchmark regex, timer checks dailyaidecheck units
+- 6.2.1.2.4 checks not enabled and not active instead of masked
+- 6.4.4.x log, config and tool tests report every non-compliant file
+- 7.1.13 lists SUID/SGID files, fails on unpackaged or modified ones
+- 7.2.9 home directory mode check covers every home directory
+
 ## Aug26 Updates
 
 ### Benchmark alignment to v2.0.0
